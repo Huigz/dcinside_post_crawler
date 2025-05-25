@@ -13,43 +13,40 @@ dcinside_scrapy/
 │       ├── __init__.py
 │       └── dcinside_spider.py  # 메인 크롤러 파일
 ├── scrapy.cfg            # Scrapy 설정 파일
-└── README.md            
-```
+└── README.md    
 
-## 기능 설명
-- DCinside 웹사이트에서 게시글 데이터 수집
-- CSV 파일에서 URL 목록 읽기 지원
-- 한글과 영어 텍스트 자동 처리
-- 게시글 제목, 작성자, 내용 등 정보 추출
+example_result.csv # 수집된 데이터 예제        
+```
 
 ## 데이터 필드
 - artist: 아티스트 이름
-- month: 월
+- month: 게시 시간 (월)
 - url: 게시글 URL
 - nickname: 작성자 닉네임
 - ip: 작성자 IP
-- post_id: 게시글 ID
+- uid: 작성자 ID (고정닉)
 - title: 게시글 제목
-- like: 좋아요 수
-- unlike: 싫어요 수
+- like: 추천수
+- unlike: 비추천
 - view: 조회수
 - content: 게시글 내용
 
 ## 사용 방법
+
 1. CSV 파일 준비 (다음 열 포함):
-   - Url: 게시글 URL
+   - Url: 수집할 게시글 URL
    - Artist: 아티스트 이름
-   - Month: 월
+   - Month: 게시 시간 (월)
 
 2. 크롤러 실행:
+
 ```bash
 scrapy crawl dcinside -a csv_file=your_file.csv -o file_to_save_data.csv
 ```
 
-## 데이터 정제
-- 한글과 영어가 아닌 문자 자동 제거
-- 일반 공백 유지
-- 숫자 자동 추출
-- 빈 값 자동 처리
+예:
 
+```bash
+scrapy crawl dcinside -a csv_file=data/urls.csv -o example_result.csv
+```
 

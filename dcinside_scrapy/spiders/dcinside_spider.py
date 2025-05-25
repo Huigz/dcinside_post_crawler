@@ -6,13 +6,15 @@ from ..items import DcinsideScrapyItem
 
 class DcinsideSpider(scrapy.Spider):
     name = "dcinside"
-#    allowed_domains = ["dcinside.com"]
-    
-    # 设置请求延迟和重试
+
+    # scrapy request settings
     custom_settings = {
         'DOWNLOAD_DELAY': 1,  
-        'RETRY_TIMES': 3,     
+        'RANDOMIZE_DOWNLOAD_DELAY': True,  
+        'DOWNLOAD_DELAY_RANGE': (0.5, 1.5),
+        'RETRY_TIMES': 5,     
         'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],  
+        'CONCURRENT_REQUESTS_PER_DOMAIN': 2,  
     }
     
     def __init__(self, csv_file=None, *args, **kwargs):
@@ -58,8 +60,9 @@ class DcinsideSpider(scrapy.Spider):
         
     
         loader.add_css('title', '.title_subject::text')
-        loader.add_css('nickname', '.nickname::attr(title)')
-        loader.add_css('ip', '.ip::text')
+        loader.add_css('nickname', '.gallview_head .gall_writer::attr(data-nick)')
+        loader.add_css('ip', '.gallview_head .gall_writer::attr(data-ip)')
+        loader.add_css('uid', '.gallview_head .gall_writer::attr(data-uid)')
         loader.add_value('url', response.url)
         loader.add_css('content', '.write_div *::text') # it will save as a text list
         loader.add_css('like', '.gallview_head .gall_reply_num::text')

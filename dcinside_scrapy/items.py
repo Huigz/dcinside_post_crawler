@@ -51,6 +51,10 @@ class DcinsideScrapyItem(scrapy.Item):
         serializer=str,
         output_processor=TakeFirst()
     )  # 작성자 ip
+    uid: str = scrapy.Field(
+        serializer=str,
+        output_processor=TakeFirst()
+    )  # 작성자 uid 
     post_id: str = scrapy.Field(
         serializer=str,
         output_processor=TakeFirst()
