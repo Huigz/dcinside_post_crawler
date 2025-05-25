@@ -1,5 +1,16 @@
 # DCinside Scrapy 프로젝트
 
+## 설치 방법
+
+*설치하기 전에 가상환경 생성 및 활성화 추천*
+
+### 의존 패키지 설치
+
+```bash
+# requirements.txt 설치
+pip install -r requirements.txt
+```
+
 ## 프로젝트 구조
 ```
 dcinside_scrapy/
@@ -49,4 +60,5 @@ scrapy crawl dcinside -a csv_file=your_file.csv -o file_to_save_data.csv
 ```bash
 scrapy crawl dcinside -a csv_file=data/urls.csv -o example_result.csv
 ```
+
 
