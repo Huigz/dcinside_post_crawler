@@ -93,13 +93,14 @@ scrapy crawl dcinside -a csv_file=path_of_url_file
 
 > [!IMPORTANT]
 >
-> Url.csv 파일을 프로젝트 Root 디렉터리의 data 폴더에 저장했기 때문에, 파일명이 **urls.csv** 라고 가정하면 **path_of_url_file** 은 다음과 같
+> Url.csv 파일을 프로젝트 Root 디렉터리의 data 폴더에 저장했기 때문에, 파일명이 **urls.csv** 라고 가정하면 **path_of_url_file** 은 다음과 같다
 >
 > - data/urls.csv
 >
-> 수집한 데이터를 **result.csv** 파일에 저장하고자 한다면, **file_to_save_crawled_data** 는 다음과 같습니다:
+> 수집한 데이터가 자동으로 프로젝트 Root 디렉터리의 **result.csv** 파일에 저장된다
 >
 > - result.csv
+>
 
 따라서 위의 전제를 바탕으로 Scrapy crawler를 실행하는 명령어는 다음과 같다:
 
