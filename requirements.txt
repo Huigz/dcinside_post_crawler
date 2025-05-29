@@ -1,3 +1,2 @@
-Scrapy
-pandas
-
+Scrapy==2.11.2
+pandas==2.2.2
