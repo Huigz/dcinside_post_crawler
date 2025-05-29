@@ -13,22 +13,20 @@
   git clone https://github.com/Huigz/dcinside_post_crawler.git
   ```
 
-> [!NOTE] 
->
-> Unzip/ Clone한 후의 프로젝트 구조는 다음과 같다
->
-> main (or dcinside_post_crawler)/
-> ├── dcinside_scrapy/
-> │   ├── __init__.py
-> │   ├── items.py          # 데이터 모델 정의
-> │   ├── middlewares.py    # 미들웨어 （이 프로젝트에서 미사용）
-> │   ├── pipelines.py      # 데이터 처리 파이프라인 （이 프로젝트에서 미사용）
-> │   ├── settings.py       # 프로젝트 설정
-> │   └── spiders/          # 크롤러 디렉토리
-> │       ├── __init__.py
-> │       └── dcinside_spider.py  # 메인 크롤러 파일
-> ├── scrapy.cfg            # Scrapy 설정 파일
-> └── README.md  
+Unzip/ Clone한 후의 프로젝트 구조는 다음과 같다
+
+main (or dcinside_post_crawler)/
+├── dcinside_scrapy/
+│   ├── __init__.py
+│   ├── items.py          # 데이터 모델 정의
+│   ├── middlewares.py    # 미들웨어 （이 프로젝트에서 미사용）
+│   ├── pipelines.py      # 데이터 처리 파이프라인 （이 프로젝트에서 미사용）
+│   ├── settings.py       # 프로젝트 설정
+│   └── spiders/          # 크롤러 디렉토리
+│       ├── __init__.py
+│       └── dcinside_spider.py  # 메인 크롤러 파일
+├── scrapy.cfg            # Scrapy 설정 파일
+└── README.md  
 
 
 
