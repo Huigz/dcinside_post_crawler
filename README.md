@@ -20,7 +20,7 @@
   ```
 
 
-### 2. Open Terminal & Commend Line
+### 2. Open Terminal & Command Line
 
 **2.1. 프로젝트 경로로 이동**
 
