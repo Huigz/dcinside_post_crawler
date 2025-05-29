@@ -101,7 +101,7 @@ scrapy crawl dcinside -a csv_file=path_of_url_file -o file_to_save_crawled_data.
 scrapy crawl dcinside -a csv_file=data/urls.csv -o result.csv
 ```
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/UIDr2py" data-context="false" ><a href="//imgur.com/a/UIDr2py"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+![guide](https://i.imgur.com/SgkQLwB.gif)
 
 
 > [!CAUTION]
