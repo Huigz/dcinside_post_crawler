@@ -101,6 +101,9 @@ scrapy crawl dcinside -a csv_file=path_of_url_file -o file_to_save_crawled_data.
 scrapy crawl dcinside -a csv_file=data/urls.csv -o result.csv
 ```
 
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/UIDr2py" data-context="false" ><a href="//imgur.com/a/UIDr2py"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+
 > [!CAUTION]
 >
 > Scrapy는 자동으로 result.csv 파일을 생성하며, **처음 크롤러를 실행할 때 동일한 디렉터리에 같은 이름의 result.csv 파일이 존재하지 않도록 주의해 주세요.**
