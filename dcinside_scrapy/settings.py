@@ -94,3 +94,11 @@ DEFAULT_REQUEST_HEADERS = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+FEEDS = {
+    'result.csv': {
+        'format': 'csv',
+        'fields': ['title', 'nickname', 'ip', 'uid', 'url', 'content', 'like', 'unlike', 'view'],
+        'overwrite': False,
+    }
+}
