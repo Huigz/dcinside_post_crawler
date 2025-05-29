@@ -88,7 +88,7 @@ Scrapy는 urls.csv 파일의 url 열 데이터를 순차적으로 추가하고, 
 ### 4. Run scrapy
 
 ```bash
-scrapy crawl dcinside -a csv_file=path_of_url_file -o file_to_save_crawled_data.csv
+scrapy crawl dcinside -a csv_file=path_of_url_file
 ```
 
 > [!IMPORTANT]
