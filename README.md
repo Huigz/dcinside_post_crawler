@@ -1,5 +1,11 @@
 # DCInside Scrapy Crawler Guide 
 
+> [!CAUTION]
+> Python=3.11 환경에서 개발/테스트완료
+> 기타 버전에서 실행 시 오류 생길 수 있음
+
+
+
 ### 1. Download & Clone the project 
 
 - Download directly 
