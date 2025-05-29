@@ -11,7 +11,7 @@
 - Download directly 
 
   - https://github.com/Huigz/dcinside_post_crawler/archive/refs/heads/main.zip
-    - 다운로드가 완료되면  **main.zip** 파일을 로컬에 압축 해제(Unzip)해 주세요.
+    - 다운로드가 완료되면  **dcinside_post_crawler-main.zip** 파일을 로컬에 압축 해제(Unzip)해 주세요.
 
 - Or Use Git and clone the project in bash
 
@@ -104,13 +104,28 @@ scrapy crawl dcinside -a csv_file=path_of_url_file -o file_to_save_crawled_data.
 따라서 위의 전제를 바탕으로 Scrapy crawler를 실행하는 명령어는 다음과 같다:
 
 ```bash
-scrapy crawl dcinside -a csv_file=data/urls.csv -o result.csv
+scrapy crawl dcinside -a csv_file=data/urls.csv
 ```
 
 
 > [!CAUTION]
 >
 > Scrapy는 자동으로 result.csv 파일을 생성하며, **처음 크롤러를 실행할 때 동일한 디렉터리에 같은 이름의 result.csv 파일이 존재하지 않도록 주의해 주세요.**
+
+
+### 5. Resume the crawling process
+
+크롤링이 중단되었을 경우, 동일한 명령어를 재실행하면 Scrapy가 tmp/ 디렉터리의 데이터를 바탕으로 크롤링 대기열과 상태를 자동으로 복구하여 작업을 이어서 진행한다.
+
+예. 복구하려면 아래 명령 재실행
+
+```bash
+scrapy crawl dcinside -a csv_file=data/urls.csv
+```
+
+> [!IMPORTANT]
+>
+> 복구 실행의 경우에는 데이터 중간에 새 Column name행 자동으로 생성되며, 데이터 처리할 때 삭제하면 된다.
 
 
 
