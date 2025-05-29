@@ -101,8 +101,6 @@ scrapy crawl dcinside -a csv_file=path_of_url_file -o file_to_save_crawled_data.
 scrapy crawl dcinside -a csv_file=data/urls.csv -o result.csv
 ```
 
-![guide](https://i.imgur.com/SgkQLwB.gif)
-
 
 > [!CAUTION]
 >
