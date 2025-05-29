@@ -30,7 +30,6 @@ cd path_of_your_project
 > cd /Users/jmsu/Downloads/main/
 > ```
 >
-> ![image-20250529045859599](/Users/jmsu/Library/Application Support/typora-user-images/image-20250529045859599.png)
 
 **2.2. 운행에 필요할 python packages 설치**
 
@@ -105,4 +104,6 @@ scrapy crawl dcinside -a csv_file=data/urls.csv -o result.csv
 > [!CAUTION]
 >
 > Scrapy는 자동으로 result.csv 파일을 생성하며, **처음 크롤러를 실행할 때 동일한 디렉터리에 같은 이름의 result.csv 파일이 존재하지 않도록 주의해 주세요.**
+
+
 

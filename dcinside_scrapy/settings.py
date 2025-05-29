@@ -98,7 +98,8 @@ FEED_EXPORT_ENCODING = "utf-8"
 FEEDS = {
     'result.csv': {
         'format': 'csv',
-        'fields': ['title', 'nickname', 'ip', 'uid', 'url', 'content', 'like', 'unlike', 'view'],
         'overwrite': False,
     }
 }
+
+JOBDIR = "tmp/crawler_status"
