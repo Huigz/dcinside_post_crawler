@@ -1,3 +1,5 @@
+*[fix] 2025.06.06 fix unlike css(비추천 수 수집 절차 수정)*
+
 # DCInside Scrapy Crawler Guide 
 
 > [!CAUTION]

@@ -66,7 +66,7 @@ class DcinsideSpider(scrapy.Spider):
         loader.add_value('url', response.url)
         loader.add_css('content', '.write_div *::text') # it will save as a text list
         loader.add_css('like', '.gallview_head .gall_reply_num::text')
-        loader.add_css('unlike', '.gallview_head .down_num::text')
+        loader.add_css('unlike', '.down_num::text')
         loader.add_css('view', '.gallview_head .gall_count::text')
         
         yield loader.load_item() 
