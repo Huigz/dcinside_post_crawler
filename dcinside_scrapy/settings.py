@@ -41,8 +41,7 @@ DEFAULT_REQUEST_HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
     "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
     "Accept-Encoding": "gzip, deflate, br",
-    "Connection": "keep-alive",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    "Connection": "keep-alive"
 }
 
 # Enable or disable spider middlewares
@@ -53,9 +52,10 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    "dcinside_scrapy.middlewares.DcinsideScrapyDownloaderMiddleware": 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    "dcinside_scrapy.middlewares.DcinsideScrapyDownloaderMiddleware": 543,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -95,6 +95,12 @@ REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
+# 日志配置
+LOG_ENABLED = True
+LOG_LEVEL = 'INFO'
+LOG_FILE = 'logs/dcinside.log'
+
+
 FEEDS = {
     'result.csv': {
         'format': 'csv',
@@ -103,3 +109,19 @@ FEEDS = {
 }
 
 JOBDIR = "tmp/crawler_status"
+
+# 重试设置
+RETRY_ENABLED = True
+RETRY_TIMES = 5
+RETRY_HTTP_CODES = [500, 502, 503, 504, 522, 524, 408, 429, 403]
+RETRY_EXCEPTIONS = (
+    'twisted.internet.defer.TimeoutError',
+    'twisted.internet.error.TimeoutError',
+    'twisted.internet.error.DNSLookupError',
+    'twisted.internet.error.ConnectionRefusedError',
+    'twisted.internet.error.ConnectionDone',
+    'twisted.internet.error.ConnectionLost',
+    'twisted.internet.error.TCPTimedOutError',
+    'twisted.web.client.PartialDownloadError',
+    'scrapy.core.downloader.handlers.http11.TunnelError',
+)

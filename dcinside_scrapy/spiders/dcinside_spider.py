@@ -9,12 +9,12 @@ class DcinsideSpider(scrapy.Spider):
 
     # scrapy request settings
     custom_settings = {
-        'DOWNLOAD_DELAY': 1,  
+        'DOWNLOAD_DELAY': 2, 
+        'DOWNLOAD_TIMEOUT': 10,
         'RANDOMIZE_DOWNLOAD_DELAY': True,  
-        'DOWNLOAD_DELAY_RANGE': (0.5, 1.5),
-        'RETRY_TIMES': 5,     
-        'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],  
-        'CONCURRENT_REQUESTS_PER_DOMAIN': 2,  
+        'DOWNLOAD_DELAY_RANGE': (0.5, 1),
+        'RETRY_TIMES': 5,  
+        'CONCURRENT_REQUESTS_PER_DOMAIN': 1,  
     }
     
     def __init__(self, csv_file=None, *args, **kwargs):
@@ -49,24 +49,33 @@ class DcinsideSpider(scrapy.Spider):
             raise scrapy.exceptions.CloseSpider(f"Required meta data missing [Please check the URL CSV file!]: {str(e)}")
         
         # save meta data to item
-
         loader.add_value('artist', artist)
         loader.add_value('month', month)
+        loader.add_value('url', response.url)
         
         # save data from web page to item
-        
-        nickname = response.css(".nickname").attrib.get('title')
-        ip = response.css(".ip::text").get()
-        
-    
         loader.add_css('title', '.title_subject::text')
         loader.add_css('nickname', '.gallview_head .gall_writer::attr(data-nick)')
         loader.add_css('ip', '.gallview_head .gall_writer::attr(data-ip)')
         loader.add_css('uid', '.gallview_head .gall_writer::attr(data-uid)')
-        loader.add_value('url', response.url)
         loader.add_css('content', '.write_div *::text') # it will save as a text list
         loader.add_css('like', '.gallview_head .gall_reply_num::text')
         loader.add_css('unlike', '.down_num::text')
         loader.add_css('view', '.gallview_head .gall_count::text')
         
-        yield loader.load_item() 
+        item = loader.load_item()
+        
+    
+        if not (item.get('title') or item.get('ip') or item.get('uid') or item.get('nickname')):
+            self.logger.warning(f"[retry]:not find title or nickname/ip/uid {response.url}")
+            
+            yield scrapy.Request(
+                url=response.url,
+                callback=self.parse_article,
+                meta={'Artist': artist, 'Month': month},
+                dont_filter=True
+            )
+            
+        else:
+            yield item
+        
