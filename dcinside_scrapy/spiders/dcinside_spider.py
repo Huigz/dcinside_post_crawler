@@ -9,11 +9,10 @@ class DcinsideSpider(scrapy.Spider):
 
     # scrapy request settings
     custom_settings = {
-        'DOWNLOAD_DELAY': 2, 
+        'DOWNLOAD_DELAY': 2.3, 
         'DOWNLOAD_TIMEOUT': 10,
         'RANDOMIZE_DOWNLOAD_DELAY': True,  
         'DOWNLOAD_DELAY_RANGE': (0.5, 1),
-        'RETRY_TIMES': 5,  
         'CONCURRENT_REQUESTS_PER_DOMAIN': 1,  
     }
     

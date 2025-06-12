@@ -1,0 +1,157 @@
+2025-06-12 21:32:05 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: dcinside_scrapy)
+2025-06-12 21:32:05 [scrapy.utils.log] INFO: Versions: lxml 5.2.2.0, libxml2 2.12.6, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.7.0, Python 3.11.5 (main, Sep 11 2023, 08:31:25) [Clang 14.0.6 ], pyOpenSSL 24.2.1 (OpenSSL 3.3.1 4 Jun 2024), cryptography 43.0.0, Platform macOS-15.5-arm64-arm-64bit
+2025-06-12 21:32:05 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-06-12 21:32:05 [scrapy.extensions.telnet] INFO: Telnet Password: db5605eb68fad07f
+2025-06-12 21:32:05 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.spiderstate.SpiderState']
+2025-06-12 21:32:05 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'dcinside_scrapy',
+ 'CONCURRENT_REQUESTS_PER_DOMAIN': 1,
+ 'DOWNLOAD_DELAY': 2,
+ 'DOWNLOAD_TIMEOUT': 10,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'JOBDIR': 'tmp/crawler_status',
+ 'LOG_FILE': 'logs/dcinside.log',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'dcinside_scrapy.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_EXCEPTIONS': (<class 'twisted.internet.defer.TimeoutError'>,
+                      <class 'twisted.internet.error.TimeoutError'>,
+                      <class 'twisted.internet.error.DNSLookupError'>,
+                      <class 'twisted.internet.error.ConnectionRefusedError'>,
+                      <class 'twisted.internet.error.ConnectionDone'>,
+                      <class 'twisted.internet.error.ConnectionLost'>,
+                      <class 'twisted.internet.error.TCPTimedOutError'>),
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 522, 524, 408, 429, 403],
+ 'RETRY_TIMES': 5,
+ 'SPIDER_MODULES': ['dcinside_scrapy.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2025-06-12 21:32:05 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'dcinside_scrapy.middlewares.DcinsideScrapyDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-06-12 21:32:05 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-06-12 21:32:05 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2025-06-12 21:32:05 [scrapy.core.engine] INFO: Spider opened
+2025-06-12 21:32:05 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-06-12 21:32:05 [dcinside] INFO: Spider opened: dcinside
+2025-06-12 21:32:05 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-06-12 21:32:22 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754181&page=19931
+2025-06-12 21:32:29 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754270&page=19931
+2025-06-12 21:32:31 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754309&page=19931
+2025-06-12 21:32:34 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754335&page=19931
+2025-06-12 21:32:36 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754351&page=19931
+2025-06-12 21:32:39 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754364&page=19930
+2025-06-12 21:32:43 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754392&page=19930
+2025-06-12 21:32:46 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754407&page=19930
+2025-06-12 21:32:48 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754421&page=19930
+2025-06-12 21:32:58 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754474&page=19930
+2025-06-12 21:33:03 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754181&page=19931
+2025-06-12 21:33:05 [scrapy.extensions.logstats] INFO: Crawled 23 pages (at 23 pages/min), scraped 12 items (at 12 items/min)
+2025-06-12 21:33:08 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754505&page=19929
+2025-06-12 21:33:15 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754335&page=19931
+2025-06-12 21:33:18 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754351&page=19931
+2025-06-12 21:33:20 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid http://gall.dcinside.com/board/view/?id=bts&no=10754382&page=19930
+2025-06-12 21:33:25 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754392&page=19930
+2025-06-12 21:33:34 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754530&page=19929
+2025-06-12 21:33:46 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754560&page=19929
+2025-06-12 21:33:47 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754505&page=19929
+2025-06-12 21:33:53 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754591&page=19928
+2025-06-12 21:33:58 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754351&page=19931
+2025-06-12 21:34:05 [scrapy.extensions.logstats] INFO: Crawled 48 pages (at 25 pages/min), scraped 27 items (at 15 items/min)
+2025-06-12 21:34:08 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754633&page=19928
+2025-06-12 21:34:11 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754645&page=19928
+2025-06-12 21:34:13 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754657&page=19928
+2025-06-12 21:34:18 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754678&page=19928
+2025-06-12 21:34:36 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754560&page=19929
+2025-06-12 21:34:39 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754505&page=19929
+2025-06-12 21:34:44 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754591&page=19928
+2025-06-12 21:34:47 [scrapy.core.scraper] ERROR: Error downloading <GET https://gall.dcinside.com/board/view/?id=bts&no=10754824&page=19927>
+Traceback (most recent call last):
+  File "/Users/jmsu/anaconda/anaconda3/envs/weibo/lib/python3.11/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+2025-06-12 21:34:53 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754932&page=19927
+2025-06-12 21:35:05 [scrapy.extensions.logstats] INFO: Crawled 64 pages (at 16 pages/min), scraped 35 items (at 8 items/min)
+2025-06-12 21:35:09 [scrapy.core.scraper] ERROR: Error downloading <GET https://gall.dcinside.com/board/view/?id=bts&no=10754645&page=19928>
+Traceback (most recent call last):
+  File "/Users/jmsu/anaconda/anaconda3/envs/weibo/lib/python3.11/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+2025-06-12 21:35:11 [scrapy.core.scraper] ERROR: Error downloading <GET https://gall.dcinside.com/board/view/?id=bts&no=10754657&page=19928>
+Traceback (most recent call last):
+  File "/Users/jmsu/anaconda/anaconda3/envs/weibo/lib/python3.11/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+2025-06-12 21:35:22 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755033&page=19927
+2025-06-12 21:35:24 [scrapy.core.scraper] ERROR: Error downloading <GET https://gall.dcinside.com/board/view/?id=bts&no=10755046&page=19926>
+Traceback (most recent call last):
+  File "/Users/jmsu/anaconda/anaconda3/envs/weibo/lib/python3.11/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+2025-06-12 21:35:27 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754560&page=19929
+2025-06-12 21:35:31 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755054&page=19926
+2025-06-12 21:35:33 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754591&page=19928
+2025-06-12 21:35:35 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755063&page=19926
+2025-06-12 21:35:42 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754932&page=19927
+2025-06-12 21:35:45 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754633&page=19928
+2025-06-12 21:35:47 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755097&page=19926
+2025-06-12 21:35:50 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755113&page=19926
+2025-06-12 21:35:59 [scrapy.core.scraper] ERROR: Error downloading <GET https://gall.dcinside.com/board/view/?id=bts&no=10755154&page=19925>
+Traceback (most recent call last):
+  File "/Users/jmsu/anaconda/anaconda3/envs/weibo/lib/python3.11/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+2025-06-12 21:36:05 [scrapy.extensions.logstats] INFO: Crawled 84 pages (at 20 pages/min), scraped 46 items (at 11 items/min)
+2025-06-12 21:36:07 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754560&page=19929
+2025-06-12 21:36:09 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755177&page=19925
+2025-06-12 21:36:17 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755063&page=19926
+2025-06-12 21:36:20 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755190&page=19925
+2025-06-12 21:36:28 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754633&page=19928
+2025-06-12 21:36:53 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755177&page=19925
+2025-06-12 21:37:04 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755303&page=19924
+2025-06-12 21:37:05 [scrapy.extensions.logstats] INFO: Crawled 108 pages (at 24 pages/min), scraped 63 items (at 17 items/min)
+2025-06-12 21:37:06 [scrapy.core.scraper] ERROR: Error downloading <GET https://gall.dcinside.com/board/view/?id=bts&no=10755319&page=19924>
+Traceback (most recent call last):
+  File "/Users/jmsu/anaconda/anaconda3/envs/weibo/lib/python3.11/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+2025-06-12 21:37:09 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10754633&page=19928
+2025-06-12 21:37:25 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755396&page=19923
+2025-06-12 21:37:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://gall.dcinside.com/board/view/?id=bts&no=10755419&page=19923>
+Traceback (most recent call last):
+  File "/Users/jmsu/anaconda/anaconda3/envs/weibo/lib/python3.11/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+2025-06-12 21:37:33 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755428&page=19922
+2025-06-12 21:37:37 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755437&page=19922
+2025-06-12 21:37:39 [dcinside] WARNING: [retry]:not find title or nickname/ip/uid https://gall.dcinside.com/board/view/?id=bts&no=10755446&page=19922
+2025-06-12 21:37:41 [scrapy.core.scraper] ERROR: Error downloading <GET https://gall.dcinside.com/board/view/?id=bts&no=10755454&page=19922>
+Traceback (most recent call last):
+  File "/Users/jmsu/anaconda/anaconda3/envs/weibo/lib/python3.11/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+2025-06-12 21:37:43 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2025-06-12 21:37:43 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2025-06-12 21:37:44 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown

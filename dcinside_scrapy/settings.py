@@ -1,3 +1,5 @@
+import scrapy
+import twisted
 # Scrapy settings for dcinside_scrapy project
 #
 # For simplicity, this file contains only settings considered important or
@@ -110,18 +112,7 @@ FEEDS = {
 
 JOBDIR = "tmp/crawler_status"
 
-# 重试设置
+
 RETRY_ENABLED = True
 RETRY_TIMES = 5
-RETRY_HTTP_CODES = [500, 502, 503, 504, 522, 524, 408, 429, 403]
-RETRY_EXCEPTIONS = (
-    'twisted.internet.defer.TimeoutError',
-    'twisted.internet.error.TimeoutError',
-    'twisted.internet.error.DNSLookupError',
-    'twisted.internet.error.ConnectionRefusedError',
-    'twisted.internet.error.ConnectionDone',
-    'twisted.internet.error.ConnectionLost',
-    'twisted.internet.error.TCPTimedOutError',
-    'twisted.web.client.PartialDownloadError',
-    'scrapy.core.downloader.handlers.http11.TunnelError',
-)
+
