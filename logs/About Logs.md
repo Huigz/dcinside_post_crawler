@@ -1,1 +1,1 @@
-여기는 scrapy log file 저장 위치
+여기는 scrapy log file 저장 위치 
