@@ -2,6 +2,9 @@ import scrapy
 import pandas as pd
 from scrapy.loader import ItemLoader
 from ..items import DcinsideScrapyItem
+from datetime import datetime
+from urllib.parse import urlparse, parse_qs
+import re
 
 
 class DcinsideSpider(scrapy.Spider):
@@ -64,17 +67,38 @@ class DcinsideSpider(scrapy.Spider):
         
         item = loader.load_item()
         
-    
-        if not (item.get('title') or item.get('ip') or item.get('uid') or item.get('nickname')):
-            self.logger.warning(f"[retry]:not find title or nickname/ip/uid {response.url}")
             
-            yield scrapy.Request(
-                url=response.url,
-                callback=self.parse_article,
-                meta={'Artist': artist, 'Month': month},
-                dont_filter=True
-            )
-            
-        else:
+        if item.get('title') and (item.get('nickname') or item.get('uid')):
             yield item
+
+            
+#------------------retry--------------------------------
+        else:
+            relocation_match = r"<script>location\.href\s*=\s*'([^']+)'</script>"
+            match = re.search(relocation_match, response.text)
+            
+            if match:
+                url = match.group(1)
+                self.logger.warning(f"[redirect]: URL redirect to {url}")
+                yield scrapy.Request(
+                    url=url,
+                    callback=self.parse_article,
+                    meta={'Artist': artist, 'Month': month}
+                )
+            else:
+                #save error html file and retry----
+                parsed_url = urlparse(response.url)
+                params = parse_qs(parsed_url.query)
+                with open('debug_warning_html/{}.html'.format(params['no'][0]), 'w') as f:
+                    f.write(response.text)
+                
+                self.logger.error(f"[retry]: Missing required fields for {response.url}") #retry
+                yield scrapy.Request(
+                    url=response.url,
+                    callback=self.parse_article,
+                    meta={'Artist': artist, 'Month': month},
+                    dont_filter=True
+                )
+            #--------------------------------
+            
         

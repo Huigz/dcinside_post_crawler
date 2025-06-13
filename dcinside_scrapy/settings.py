@@ -99,7 +99,7 @@ FEED_EXPORT_ENCODING = "utf-8"
 
 # 日志配置
 LOG_ENABLED = True
-LOG_LEVEL = 'INFO'
+LOG_LEVEL = 'DEBUG'
 LOG_FILE = 'logs/dcinside.log'
 
 
@@ -115,4 +115,20 @@ JOBDIR = "tmp/crawler_status"
 
 RETRY_ENABLED = True
 RETRY_TIMES = 5
+
+# 需要重试的HTTP状态码
+RETRY_HTTP_CODES = [
+    500,  # 服务器内部错误
+    502,  # 网关错误
+    503,  # 服务不可用
+    504,  # 网关超时
+    522,  # 连接超时
+    524,  # 超时
+    408,  # 请求超时
+    429,  # 请求过多
+    403,  # 禁止访问
+    404,  # 未找到
+    400,  # 错误请求
+]
+
 
