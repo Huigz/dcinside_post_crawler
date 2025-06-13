@@ -1,2 +1,3 @@
 Scrapy==2.11.2
 pandas==2.2.2
+anti-useragent==1.0.10
