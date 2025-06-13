@@ -1,4 +1,11 @@
-*[fix] 2025.06.06 fix unlike css(비추천 수 수집 절차 수정)*
+
+> [!NOTE]
+> *2025.6.14*
+> [update]  process bar 기능
+> [update] fake useragent 기능
+> [fix] crawler request speed 조절 
+> [debug] log내용 "logs/dcinside.log"에서 저장
+> [debug] 연결이 성공했지만 데이터 수집 안된 경우 오류 생긴 html file "debug_warning_html/*.html"에서 저장
 
 # DCInside Scrapy Crawler Guide 
 

@@ -5,7 +5,7 @@
 
 import scrapy
 import re
-from scrapy.loader.processors import MapCompose, TakeFirst, Join
+from itemloaders.processors import MapCompose, Join, TakeFirst #for scrapy 2.11.2
     
 
 def extract_int(text):

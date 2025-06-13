@@ -5,6 +5,7 @@ from ..items import DcinsideScrapyItem
 from datetime import datetime
 from urllib.parse import urlparse, parse_qs
 import re
+from tqdm import tqdm
 
 
 class DcinsideSpider(scrapy.Spider):
@@ -29,12 +30,21 @@ class DcinsideSpider(scrapy.Spider):
     def start_requests(self):
         try:
             df = pd.read_csv(self.csv_file)
-            for index, row in df.iterrows():
+            pbar = tqdm(df.iterrows(), desc="Processing URLs", total=len(df))
+            for index, row in pbar:
+                url = row['Url']
+                parse_url = urlparse(url)
+                params = parse_qs(parse_url.query)
+                page = params.get('page', [])[0]
+                no = params.get('no', [])[0]
+
                 yield scrapy.Request(
                     url=row['Url'],
                     callback=self.parse_article,
-                    meta={'Artist': row['Artist'], 'Month': row['Month']}
+                    meta={'Artist': row['Artist'], 'Month': row['Month'], 'Page': page}
                 )
+                pbar.update(1)
+                pbar.set_postfix(page=page, no=no)
         except Exception as e:
             self.logger.error(f"[Error during reading the CSV file!] {str(e)}")
 
@@ -69,9 +79,10 @@ class DcinsideSpider(scrapy.Spider):
         
             
         if item.get('title') and (item.get('nickname') or item.get('uid')):
+            print("success: ", item.get('url'))
             yield item
 
-            
+
 #------------------retry--------------------------------
         else:
             relocation_match = r"<script>location\.href\s*=\s*'([^']+)'</script>"
