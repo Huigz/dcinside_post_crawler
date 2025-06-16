@@ -13,21 +13,29 @@ class DcinsideSpider(scrapy.Spider):
 
     # scrapy request settings
     custom_settings = {
-        'DOWNLOAD_DELAY': 2.3, 
+        #'DOWNLOAD_DELAY': 2.3, # set in __init__
         'DOWNLOAD_TIMEOUT': 10,
         'RANDOMIZE_DOWNLOAD_DELAY': True,  
         'DOWNLOAD_DELAY_RANGE': (0.5, 1),
         'CONCURRENT_REQUESTS_PER_DOMAIN': 1,  
     }
     
-    def __init__(self, csv_file=None, *args, **kwargs):
+    def __init__(self, csv_file=None, delay=2, *args, **kwargs):
         super(DcinsideSpider, self).__init__(*args, **kwargs)
         self.csv_file = csv_file
+        self.delay = delay
         if not self.csv_file:
             self.logger.error("[Please provide the URL CSV file path!] Use -a csv_file=your_file.csv")
             return
+    
+    @classmethod
+    def from_crawler(cls, crawler, *args, **kwargs):
+        spider = super(DcinsideSpider, cls).from_crawler(crawler, *args, **kwargs)
+        crawler.settings.set("DOWNLOAD_DELAY", spider.delay, priority='spider')
+        return spider
 
     def start_requests(self):
+        print(f"DOWNLOAD_DELAY: {self.delay}s")
         try:
             df = pd.read_csv(self.csv_file)
             pbar = tqdm(df.iterrows(), desc="Processing URLs", total=len(df))

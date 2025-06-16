@@ -19,7 +19,7 @@ def clean_content(text):
     if text is None:
         return ""
     
-    text = re.sub(r'[^\uAC00-\uD7A3\u3130-\u318F\u1100-\u11FF\u0020\u0041-\u005A\u0061-\u007A]', '', text)    
+    text = re.sub(r'[^\uAC00-\uD7A3\u3130-\u318F\u1100-\u11FF\u0030-\u0039\u0041-\u005A\u0061-\u007A\u0020\u0021-\u002F\u003A-\u0040\u005B-\u0060\u007B-\u007E]', '', text)    
     text = re.sub(r'\s+', ' ', text)
     
     return text.strip()
@@ -55,10 +55,6 @@ class DcinsideScrapyItem(scrapy.Item):
         serializer=str,
         output_processor=TakeFirst()
     )  # 작성자 uid 
-    post_id: str = scrapy.Field(
-        serializer=str,
-        output_processor=TakeFirst()
-    )  # 게시글 ID
     title: str = scrapy.Field(
         serializer=str,
         output_processor=TakeFirst()

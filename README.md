@@ -1,7 +1,10 @@
 
+**2025.6.17**
+- [update] delay time setting (아래 설정 방법 4.2 참조)
+- [fix] contents filter (특수 이모티콘만 제거)
 
-**2025.6.14**
-- [update]  process bar 기능
+2025.6.14
+- [update] process bar 기능
 - [update] fake useragent 기능
 - [fix] crawler request speed 조절 
 - [debug] log내용 "logs/dcinside.log"에서 저장
@@ -12,7 +15,6 @@
 > [!CAUTION]
 > Python=3.11 환경에서 개발/테스트완료
 > 기타 버전에서 실행 시 오류 생길 수 있음
-
 
 
 ### 1. Download & Clone the project 
@@ -95,7 +97,7 @@ Scrapy는 urls.csv 파일의 url 열 데이터를 순차적으로 추가하고, 
 
 
 ### 4. Run scrapy
-
+#### 4.1 start crawling
 ```bash
 scrapy crawl dcinside -a csv_file=path_of_url_file
 ```
@@ -122,6 +124,16 @@ scrapy crawl dcinside -a csv_file=data/urls.csv
 >
 > Scrapy는 자동으로 result.csv 파일을 생성하며, **처음 크롤러를 실행할 때 동일한 디렉터리에 같은 이름의 result.csv 파일이 존재하지 않도록 주의해 주세요.**
 
+
+#### 4.2 set crawling delay time
+
+default delay time = 2
+
+**You can set it to 1 second ⬇️ or any value you want.**
+
+```bash
+scrapy crawl dcinside -a csv_file=data/urls.csv -a delay=1
+```
 
 ### 5. Resume the crawling process
 
