@@ -24,9 +24,8 @@ class DcinsideSpider(scrapy.Spider):
         super(DcinsideSpider, self).__init__(*args, **kwargs)
         self.csv_file = csv_file
         self.delay = delay
-        if not self.csv_file:
-            self.logger.error("[Please provide the URL CSV file path!] Use -a csv_file=your_file.csv")
-            return
+            
+            
     
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):
@@ -36,6 +35,10 @@ class DcinsideSpider(scrapy.Spider):
 
     def start_requests(self):
         print(f"DOWNLOAD_DELAY: {self.delay}s")
+        if not self.csv_file:
+            self.logger.error("[Please provide the URL CSV file path!] Use -a csv_file=your_file.csv")
+            print('[Please provide the URL CSV file path!] Use "-a csv_file=your_file.csv" ')
+            return
         try:
             df = pd.read_csv(self.csv_file)
             pbar = tqdm(df.iterrows(), desc="Processing URLs", total=len(df))
@@ -54,6 +57,7 @@ class DcinsideSpider(scrapy.Spider):
                 pbar.update(1)
                 pbar.set_postfix(page=page, no=no)
         except Exception as e:
+            print(f"[Crawler terminated] Error during reading the CSV file! : {str(e)}")
             self.logger.error(f"[Error during reading the CSV file!] {str(e)}")
 
 
