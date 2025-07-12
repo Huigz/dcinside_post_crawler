@@ -35,10 +35,11 @@ class DcinsideScrapyItem(scrapy.Item):
         serializer=str,
         output_processor=TakeFirst()
     )  # 아티스트 이름
-    month: str = scrapy.Field(
+    # 将month字段改为date字段
+    date: str = scrapy.Field(
         serializer=str,
         output_processor=TakeFirst()
-    )   # Month
+    )   # Date
     url: str = scrapy.Field(
         serializer=str,
         output_processor=TakeFirst()

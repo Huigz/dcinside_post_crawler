@@ -1,5 +1,12 @@
 
-**2025.6.17**
+**2025.7.12**
+
+- [Update] New progress bar :tada:
+- [Update] You can now use `url.csv` column names in any case variant (e.g., Artist, ARTIST, artist, etc.). :tada:
+- [Settings] Default delay: 0.7 s :rocket:
+- [Settings] Change Url CSV file column format: Month → Date (`yyyy-mm` → `yyyy-mm-dd`) :warning:
+
+2025.6.17
 - [update] delay time setting (아래 설정 방법 4.2 참조)
 - [fix] contents filter (특수 이모티콘만 제거)
 
@@ -76,20 +83,25 @@ Scrapy는 urls.csv 파일의 url 열 데이터를 순차적으로 추가하고, 
 
 2. **필수 열**
 
+> [!IMPORTANT]
+> Update 7.12 
+> You can now use `url.csv` column names in any case variant (e.g., Artist, ARTIST, artist, etc.).
+
+
 ​	CSV 파일은 반드시 다음 세 개의 열(3 columns)을 포함해야 한다:
 
 - `Url`: DCinside 게시글 URL
   - URL은 반드시 DCinside 갤러리의 게시글 URL이어야 한다
 
 - `Artist`: 아티스트 이름
-- `Month`: 게시글 작성 월
+- `Date`: 게시글 작성 월
 
-> [!IMPORTANT]
+> [!NOTE]
 >
 > 예.
 >
 > ```
-> Url,Artist,Month
+> Url,Artist,Date
 > https://gall.dcinside.com/board/view/?id=artist&no=1234567,아이유,2024-03
 > https://gall.dcinside.com/board/view/?id=artist&no=7654321,IU,2024-02
 > ```
@@ -137,6 +149,8 @@ scrapy crawl dcinside -a csv_file=data/urls.csv -a delay=1
 
 ### 5. Resume the crawling process
 
+#### 5.1 Scrapy통해 복구
+
 크롤링이 중단되었을 경우, 동일한 명령어를 재실행하면 Scrapy가 tmp/ 디렉터리의 데이터를 바탕으로 크롤링 대기열과 상태를 자동으로 복구하여 작업을 이어서 진행한다.
 
 예. 복구하려면 아래 명령 재실행
@@ -145,9 +159,24 @@ scrapy crawl dcinside -a csv_file=data/urls.csv -a delay=1
 scrapy crawl dcinside -a csv_file=data/urls.csv
 ```
 
-> [!IMPORTANT]
+> [!NOTE]
 >
 > 복구 실행의 경우에는 데이터 중간에 새 Column name행 자동으로 생성되며, 데이터 처리할 때 삭제하면 된다.
 
 
+#### 5.2 row_offset 설정통해 복구
 
+> [!IMPORTANT]
+>
+> Scrapy가 강제 중단되면 저장된 임시 대기열 파일이 손상될 수 있고 result.csv의 저장 진행 상황을 확인한 후, 이미 크롤링된 url.csv의 행을 row_offset을 통해 건너뛸 수 있다.
+
+```bash
+scrapy crawl dcinside -a csv_file=data/urls.csv -a row_offset=200
+```
+
+위 명령은 크롤러가 url.csv의 200 행(row index=200)부터 크롤링을 재개한다는 뜻다.
+
+### 기타
+
+- Author: Jmsu
+- Email: huigz512@gmail.com
