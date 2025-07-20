@@ -91,7 +91,7 @@ class DcinsideSpider(scrapy.Spider):
                 yield scrapy.Request(
                     url=row['url'],
                     callback=self.parse_article,
-                    meta={'Artist': row['artist'], 'Date': row['date'], 'Page': page, 'No': no}
+                    meta={'Artist': row['artist'], 'Page': page, 'No': no}
                 )
                     
         except Exception as e:
@@ -120,7 +120,6 @@ class DcinsideSpider(scrapy.Spider):
     
         try:
             artist = response.meta['Artist']
-            date = response.meta['Date']
         except KeyError as e:
             self.logger.error(f"[Missing required meta data!] {str(e)}")
             self.console.print(f"[red]✗ Required meta data missing [Please check the URL CSV file!]: {str(e)} [/red]")
@@ -128,7 +127,6 @@ class DcinsideSpider(scrapy.Spider):
         
         # save meta data to item
         loader.add_value('artist', artist)
-        loader.add_value('date', date)
         loader.add_value('url', response.url)
         
         # save data from web page to item
@@ -137,6 +135,7 @@ class DcinsideSpider(scrapy.Spider):
         loader.add_css('ip', '.gallview_head .gall_writer::attr(data-ip)')
         loader.add_css('uid', '.gallview_head .gall_writer::attr(data-uid)')
         loader.add_css('content', '.write_div *::text') # it will save as a text list
+        loader.add_css('date', '.gallview_head .gall_date::attr(title)')
         loader.add_css('like', '.gallview_head .gall_reply_num::text')
         loader.add_css('unlike', '.down_num::text')
         loader.add_css('view', '.gallview_head .gall_count::text')
@@ -160,7 +159,7 @@ class DcinsideSpider(scrapy.Spider):
                 yield scrapy.Request(
                     url=url,
                     callback=self.parse_article,
-                    meta={'Artist': artist, 'Date': date}
+                    meta={'Artist': artist}
                 )
             else:
                 #save error html file and retry----
@@ -174,7 +173,7 @@ class DcinsideSpider(scrapy.Spider):
                 yield scrapy.Request(
                     url=response.url,
                     callback=self.parse_article,
-                    meta={'Artist': artist, 'Date': date},
+                    meta={'Artist': artist},
                     dont_filter=True
                 )
 

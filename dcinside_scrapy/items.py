@@ -24,7 +24,11 @@ def clean_content(text):
     
     return text.strip()
 
-
+def match_date(text):
+    if text is None:
+        return ""
+    match = re.search(r'\d{4}\-\d{2}\-\d{2}', text)
+    return match.group() if match else ""
 
 
 
@@ -35,9 +39,9 @@ class DcinsideScrapyItem(scrapy.Item):
         serializer=str,
         output_processor=TakeFirst()
     )  # 아티스트 이름
-    # 将month字段改为date字段
     date: str = scrapy.Field(
         serializer=str,
+        input_processor=MapCompose(match_date),
         output_processor=TakeFirst()
     )   # Date
     url: str = scrapy.Field(
