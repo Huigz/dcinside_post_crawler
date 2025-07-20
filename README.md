@@ -1,4 +1,10 @@
 
+**2025.7.20**
+
+- [Fix] encoding from utf8 to utf-8-sig to avoid Excel decoding error
+- [Update] crawling date data
+
+
 **2025.7.12**
 
 - [Update] New progress bar :tada:
@@ -94,7 +100,7 @@ Scrapy는 urls.csv 파일의 url 열 데이터를 순차적으로 추가하고, 
   - URL은 반드시 DCinside 갤러리의 게시글 URL이어야 한다
 
 - `Artist`: 아티스트 이름
-- `Date`: 게시글 작성 월
+- ~~`Date`: 게시글 작성 월~~ 7.20일 버전부터 사용되지 않음
 
 > [!NOTE]
 >
